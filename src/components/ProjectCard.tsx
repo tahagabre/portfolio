@@ -14,9 +14,18 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
     return (
         <article 
-            className="group flex flex-col gap-3 overflow-hidden rounded-xl border border-stone-200 dark:border-stone-800 transition-transform duration-150 active:scale-95"
+            className="group flex flex-col gap-3 overflow-hidden rounded-xl border border-stone-200 dark:border-stone-800 transition-transform duration-150 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background" 
             onTouchStart={() => {}}
             onClick={() => setIsOpen(true)}
+            tabIndex={0}
+            role="button"
+            aria-label={`View details for ${project.title}`}
+            onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    setIsOpen(true);
+                }
+            }}
         >
             <div className="relative aspect-3/2 w-full bg-stone-100 dark:bg-stone-900">
             {thumbnailSrc && (
@@ -40,7 +49,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </p>
             </div>
             {isOpen && (
-                <Modal onClose={() => setIsOpen(false)}>
+                <Modal onClose={() => setIsOpen(false)} title={`${project.title} details`}>
                     <div className="flex flex-col gap-4">
                         <h2 className="font-serif text-2xl font-semibold">{project.title}</h2>
                         <p className="text-stone-600 dark:text-stone-400">{project.description}</p>
@@ -48,7 +57,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                             { project.media.map((item, index) => {
                                 const src = item.type === "video" ? item.poster : item.src;
                                 return (
-                                    <div key={index} className="relative aspect-[3/2] w-full overflow-hidden rounded-lg bg-stone-100 dark:bg-stone-900">
+                                    <div key={index} className="relative aspect-3/2 w-full overflow-hidden rounded-lg bg-stone-100 dark:bg-stone-900">
                                         {src && <Image src={src} alt={item.alt} fill className="object-cover" />}
                                     </div>
                                 );
