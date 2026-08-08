@@ -1,0 +1,12 @@
+# Taha Gabre
+
+> iOS Engineer. Portfolio site showcasing professional work history.
+
+This site is a work-history portfolio. It lists companies worked at, with
+screenshots and videos of shipped iOS features at each.
+
+## Pages
+
+- [Home](/): Intro and contact info (email, LinkedIn, GitHub, resume).
+- [The Knot Worldwide](/work/the-knot-worldwide): Work at The Knot Worldwide.
+- [URBN](/work/urbn): Work at URBN.
