@@ -59,6 +59,17 @@ export default async function CompanyPage(
           ))}
         </div>
       </div>
+        <ul className="flex flex-wrap gap-4 text-base font-medium">
+          {company.appLinks.map((appLink) => (
+                <li key={appLink.link} className="underline decoration-stone-300 underline-offset-4 hover:decoration-stone-500 dark:decoration-stone-600">
+                    <a
+                      href={appLink.link}
+                    >
+                      {appLink.name}
+                    </a>
+                </li>
+          ))}
+        </ul>
     </section>
   );
 }

@@ -14,6 +14,11 @@ export type Project = {
   media: Media[];
 };
 
+export type AppLink = {
+  link: string;
+  name: string;
+};
+
 export type Company = {
   slug: string;
   name: string;
@@ -22,6 +27,7 @@ export type Company = {
   dateRange: string;
   summary: string[];
   projects: Project[];
+  appLinks: AppLink[];
 };
 
 export const companies: Company[] = [
@@ -116,6 +122,12 @@ export const companies: Company[] = [
         ],
       },
     ],
+    appLinks: [
+      {
+        link: "https://apps.apple.com/us/app/weddingpro-for-vendors/id1480717898",
+        name: "WeddingPro"
+      }
+    ],
   },
   {
     slug: "urbn",
@@ -207,6 +219,20 @@ export const companies: Company[] = [
           },
         ],
       },
+    ],
+    appLinks: [
+      {
+        link: "https://apps.apple.com/us/app/urban-outfitters/id358821736",
+        name: "Urban Outfitters"
+      },
+      {
+        link: "https://apps.apple.com/us/app/anthropologie/id922496703",
+        name: "Anthropologie"
+      },
+      {
+        link: "https://apps.apple.com/us/app/free-people/id659532790",
+        name: "Free People"
+      }
     ],
   },
 ];
