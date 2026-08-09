@@ -5,8 +5,8 @@ export const site = {
   // env var wherever the site is deployed (e.g. Vercel project settings).
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com",
   email: "tahagabre@gmail.com",
-  linkedin: "https://www.linkedin.com/in/REPLACE_ME",
-  github: "https://github.com/REPLACE_ME",
+  linkedin: "https://www.linkedin.com/in/tahagabre",
+  github: "https://github.com/tahagabre",
   intro:
-    "Placeholder intro. A couple sentences on who you are, what you build, and what you're looking for. Swap this out with your own voice.",
+    "Making the right product has driven every decision throughout my career, starting as a game developer crafting enjoyable moments for players, and continuing into native iOS. Most recently, I shipped a native SwiftUI messaging app built with Swift Concurrency, taking it from zero to MVP in five months. The standard for me is and always has been making the product more seamless, intuitive, and productive for my users.",
 };

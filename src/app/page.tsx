@@ -49,7 +49,7 @@ export default function Home() {
           <a
             className="underline decoration-stone-300 underline-offset-4 hover:decoration-stone-500 dark:decoration-stone-600"
             href="/resume.pdf"
-            download
+            target="_blank" rel="noopener noreferrer"
           >
             Resume
           </a>
