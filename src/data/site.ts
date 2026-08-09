@@ -7,6 +7,8 @@ export const site = {
   email: "tahagabre@gmail.com",
   linkedin: "https://www.linkedin.com/in/tahagabre",
   github: "https://github.com/tahagabre",
-  intro:
-    "Making the right product has driven every decision throughout my career, starting as a game developer crafting enjoyable moments for players, and continuing into native iOS. Most recently, I shipped a native SwiftUI messaging app built with Swift Concurrency, taking it from zero to MVP in five months. The standard for me is and always has been making the product more seamless, intuitive, and productive for my users.",
+  intro: [
+    "Making the right product has driven every decision throughout my career, starting as a game developer crafting enjoyable moments for players, and continuing into native iOS.",
+    "Most recently, I shipped a native SwiftUI messaging app built with Swift Concurrency, taking it from zero to MVP in five months. The standard for me is and always has been making the product more seamless, intuitive, and productive for my users."
+  ]
 };

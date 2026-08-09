@@ -16,6 +16,7 @@ export type Project = {
 export type Company = {
   slug: string;
   name: string;
+  shortName: string;
   role: string;
   dateRange: string;
   summary: string;
@@ -26,6 +27,7 @@ export const companies: Company[] = [
   {
     slug: "the-knot-worldwide",
     name: "The Knot Worldwide",
+    shortName: "TKWW",
     role: "Senior iOS Engineer",
     dateRange: "2025 — Present",
     summary:
@@ -73,6 +75,7 @@ export const companies: Company[] = [
   {
     slug: "urbn",
     name: "URBN",
+    shortName: "URBN",
     role: "iOS Engineer",
     dateRange: "2021 — 2025",
     summary:

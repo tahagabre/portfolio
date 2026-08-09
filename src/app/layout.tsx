@@ -25,10 +25,10 @@ export const metadata: Metadata = {
     default: `${site.name} — ${site.title}`,
     template: `%s — ${site.name}`,
   },
-  description: site.intro,
+  description: site.intro.join(" "),
   openGraph: {
     title: `${site.name} — ${site.title}`,
-    description: site.intro,
+    description: site.intro.join(" "),
     url: site.url,
     siteName: site.name,
     type: "website",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${site.name} — ${site.title}`,
-    description: site.intro,
+    description: site.intro.join(" "),
   },
 };
 

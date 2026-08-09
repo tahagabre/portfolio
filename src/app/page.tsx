@@ -12,9 +12,11 @@ export default function Home() {
         </p>
       </div>
 
-      <p className="max-w-xl text-lg leading-8 text-stone-600 dark:text-stone-300">
-        {site.intro}
-      </p>
+      <div>
+        {site.intro.map((paragraph, index) => (
+          <p key={index} className="max-w-xl text-lg leading-8 pb-4 text-stone-600 dark:text-stone-300"> {paragraph}</p>
+        ))}
+      </div>
 
       <ul className="flex flex-wrap gap-4 text-base font-medium">
         <li>

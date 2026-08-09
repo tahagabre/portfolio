@@ -15,7 +15,7 @@ export async function generateMetadata(
   if (!company) return {};
 
   return {
-    title: company.name,
+    title: company.shortName,
     description: company.summary,
     openGraph: {
       title: `${company.name} — ${company.role}`,
@@ -32,7 +32,7 @@ export default async function CompanyPage(
   if (!company) notFound();
 
   return (
-    <section className="mx-auto flex w-full max-w-5xl flex-1 flex-col gap-10 px-6 py-16">
+    <section className="mx-auto flex w-full max-w-[1800px] flex-1 flex-col gap-10 px-6 py-16">
       <header className="flex flex-col gap-2">
         <h1 className="font-serif text-3xl font-semibold tracking-tight">
           {company.name}
