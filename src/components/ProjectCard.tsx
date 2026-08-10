@@ -56,12 +56,24 @@ export function ProjectCard({ project, priority }: ProjectCardProps) {
                         <p className="text-stone-600 dark:text-stone-400">{project.description}</p>
                         <div className="flex flex-col gap-8 divide-y divide-stone-200 dark:divide-stone-800">
                             {project.media.map((item, index) => {
-                                const src = item.type === "video" ? item.poster : item.src;
-                                return (
+                                const isMediaVideo = item.type === "video";
+                                return isMediaVideo ? (
                                     <div key={index} className="flex flex-col gap-2">
-                                        {src && (
+                                    <video
+                                        src={item.src}
+                                        poster={item.poster}
+                                        controls
+                                        width={item.width}
+                                        height={item.height}
+                                        className="mx-auto h-auto max-h-[70vh] w-auto max-w-full rounded-lg object-contain"
+                                    />
+                                    <p className="mx-auto max-w-sm pb-2 text-center text-xs italic text-stone-500 dark:text-stone-400">{item.caption}</p>
+                                    </div>
+                                ) : (
+                                    <div key={index} className="flex flex-col gap-2">
+                                        {item.src && (
                                             <Image
-                                                src={src}
+                                                src={item.src}
                                                 alt={item.alt}
                                                 width={item.width}
                                                 height={item.height}
