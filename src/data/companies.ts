@@ -1,6 +1,10 @@
 export type Media = {
   type: "image" | "video";
   src: string;
+  // Real pixel dimensions of the asset, used to render media at its
+  // true aspect ratio instead of forcing it into a fixed box.
+  width: number;
+  height: number;
   alt: string;
   caption: string;
   // Poster frame shown for videos before playback (and used as the grid thumbnail).
@@ -50,30 +54,40 @@ export const companies: Company[] = [
         media: [
           {
             type: "image",
+            width: 1179,
+            height: 2556,
             src: "/work/the-knot-worldwide/inbox.png",
             alt: "inbox screenshot of WeddingPro",
             caption: "The inbox of WeddingPro, showing a list of consolidated leads across two brands and their messages.",
           },
           {
             type: "image",
+            width: 1179,
+            height: 2556,
             src: "/work/the-knot-worldwide/inbox_swipe_actions.png",
             alt: "inbox swipe actions screenshot of WeddingPro",
             caption: "Swipe actions in the inbox of WeddingPro, allowing quick management of leads.",
           },
           {
             type: "image",
+            width: 1179,
+            height: 2556,
             src: "/work/the-knot-worldwide/inbox_filter_star.png",
             alt: "inbox filter by starred leads screenshot of WeddingPro",
             caption: "Filtering starred leads in the inbox of WeddingPro.",
           },
           {
             type: "image",
+            width: 1179,
+            height: 2556,
             src: "/work/the-knot-worldwide/inbox_search.png",
             alt: "inbox search screenshot of WeddingPro",
             caption: "Searching in the WeddingPro inbox.",
           },
           {
             type: "video",
+            width: 1179,
+            height: 2556,
             src: "/work/the-knot-worldwide/inbox_startup_and_refresh.mp4",
             alt: "startup and refresh video of WeddingPro",
             caption: "Startup and refresh of the WeddingPro inbox.",
@@ -89,24 +103,32 @@ export const companies: Company[] = [
         media: [
           {
             type: "image",
+            width: 1179,
+            height: 2556,
             src: "/work/the-knot-worldwide/compose_entry.png",
             alt: "conversation screenshot of WeddingPro",
             caption: "The conversation view of WeddingPro, showing a list of messages with a lead.",
           },
           {
             type: "image",
+            width: 1179,
+            height: 2556,
             src: "/work/the-knot-worldwide/compose_collapsed_attachments.png",
             alt: "collapsed textfield screenshot of WeddingPro",
             caption: "Collapsed textfield in the conversation view of WeddingPro.",
           },
           {
             type: "image",
+            width: 1179,
+            height: 2556,
             src: "/work/the-knot-worldwide/compose_focused_attachments.png",
             alt: "focused textfield screenshot of WeddingPro",
             caption: "Focused textfield in the conversation view of WeddingPro.",
           },
           {
             type: "video",
+            width: 1179,
+            height: 2556,
             src: "/work/the-knot-worldwide/compose_expansion.mp4",
             alt: "expanding textfield video of WeddingPro",
             caption: "Expanding the textfield in the conversation view of WeddingPro.",
@@ -114,6 +136,8 @@ export const companies: Company[] = [
           },
           {
             type: "video",
+            width: 1179,
+            height: 2556,
             src: "/work/the-knot-worldwide/inbox_reply.mp4",
             alt: "replying to a lead video of WeddingPro",
             caption: "Replying to a lead in the WeddingPro inbox.",
@@ -149,24 +173,32 @@ export const companies: Company[] = [
         media: [
           {
             type: "image",
+            width: 1179,
+            height: 2556,
             src: "/work/urbn/join_waitlist_cta.png",
             alt: "back in stock waitlist CTA screenshot",
             caption: "Join waitlist CTA in the Product Detail Page.",
           },
           {
             type: "image",
+            width: 1179,
+            height: 2556,
             src: "/work/urbn/join_waitlist_form.png",
             alt: "join waitlist form screenshot",
             caption: "Join waitlist modal on the Product Detail Page.",
           },
           {
             type: "image",
+            width: 1179,
+            height: 2556,
             src: "/work/urbn/join_waitlist_confirmation.png",
             alt: "join waitlist confirmation screenshot",
             caption: "Join waitlist confirmation modal above the join waitlist form.",
           },
           {
             type: "video",
+            width: 1179,
+            height: 2556,
             src: "/work/urbn/join_waitlist_flow.mp4",
             alt: "join waitlist flow video",
             caption: "Joining the waitlist from CTA to confirmation.",
@@ -182,36 +214,48 @@ export const companies: Company[] = [
         media: [
           {
             type: "image",
+            width: 1179,
+            height: 2556,
             src: "/work/urbn/return_exchanges_select_product.png",
             alt: "return and exchanges select product screenshot",
             caption: "Selecting a product to return or exchange.",
           },
           {
             type: "image",
+            width: 1179,
+            height: 2556,
             src: "/work/urbn/return_exchanges_select_reason.png",
             alt: "return and exchanges select reason screenshot",
             caption: "Selecting a reason for the return or exchange.",
           },
           {
             type: "image",
+            width: 1179,
+            height: 2556,
             src: "/work/urbn/return_exchanges_select_return_method.png",
             alt: "return and exchanges select return method screenshot",
             caption: "Selecting a return method for the product.",
           },
           {
             type: "image",
+            width: 1179,
+            height: 2556,
             src: "/work/urbn/return_exchanges_exchange_selected.png",
             alt: "return and exchanges exchange selected screenshot",
             caption: "Exchange selected for the product.",
           },
           {
             type: "image",
+            width: 1179,
+            height: 2556,
             src: "/work/urbn/return_exchanges_find_store.png",
             alt: "return and exchanges select find store screenshot",
             caption: "Selecting a store to return/exchange the product.",
           },
           {
             type: "video",
+            width: 1179,
+            height: 2556,
             src: "/work/urbn/return_exchanges_summary.mp4",
             poster: "/work/urbn/return_exchanges_select_product.png",
             alt: "video for return and exchanges flow",

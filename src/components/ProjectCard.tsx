@@ -55,13 +55,20 @@ export function ProjectCard({ project, priority }: ProjectCardProps) {
                         <h2 className="font-serif text-2xl font-semibold">{project.title}</h2>
                         <p className="text-stone-600 dark:text-stone-400">{project.description}</p>
                         <div className="flex flex-col gap-8 divide-y divide-stone-200 dark:divide-stone-800">
-                            { project.media.map((item, index) => {
+                            {project.media.map((item, index) => {
                                 const src = item.type === "video" ? item.poster : item.src;
                                 return (
                                     <div key={index} className="flex flex-col gap-2">
-                                        <div className="relative aspect-9/16 w-full max-h-[70vh] overflow-hidden rounded-lg bg-stone-100 dark:bg-stone-900">
-                                            {src && <Image src={src} alt={item.alt} fill className="object-contain" sizes="(min-width: 640px) 50vw, 100vw" />}
-                                        </div>
+                                        {src && (
+                                            <Image
+                                                src={src}
+                                                alt={item.alt}
+                                                width={item.width}
+                                                height={item.height}
+                                                className="mx-auto h-auto max-h-[70vh] w-auto max-w-full rounded-lg object-contain"
+                                                sizes="(min-width: 640px) 50vw, 100vw"
+                                            />
+                                        )}
                                         <p className="mx-auto max-w-sm pb-2 text-center text-xs italic text-stone-500 dark:text-stone-400">{item.caption}</p>
                                     </div>
                                 );
