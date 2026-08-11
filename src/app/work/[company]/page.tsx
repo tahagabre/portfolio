@@ -31,8 +31,18 @@ export default async function CompanyPage(
   const company = getCompany(slug);
   if (!company) notFound();
 
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: company.name,
+  };
+
   return (
     <section className="mx-auto flex w-full max-w-7xl flex-1 flex-col gap-10 px-6 py-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+      />
       <header className="flex flex-col gap-2">
         <h1 className="font-serif text-3xl font-semibold tracking-tight">
           {company.name}

@@ -29,6 +29,15 @@ export type Company = {
   shortName: string;
   role: string;
   dateRange: string;
+  // ISO dates (YYYY-MM), used for structured data (JSON-LD) rather than
+  // display - dateRange above is what's actually rendered on the page.
+  startDate: string;
+  endDate?: string;
+  // City-level only, deliberately no street address - used for JSON-LD.
+  workLocation?: { city: string; region: string; country: string };
+  // Employment arrangement (remote/hybrid/onsite) as plain text - schema.org
+  // has no standard structured property for this on a Person's role.
+  workArrangement: string;
   summary: string[];
   projects: Project[];
   appLinks: AppLink[];
@@ -41,6 +50,9 @@ export const companies: Company[] = [
     shortName: "TKWW",
     role: "Senior iOS Engineer",
     dateRange: "2025 — Present",
+    startDate: "2025-05",
+    workLocation: { city: "New York", region: "NY", country: "US" },
+    workArrangement: "Hybrid — 2 days per week in the office.",
     summary: [
       "Vendors bring in most of the revenue at TKWW, but prior to 2025, they were burdened with messaging their leads in a cumbersome web app with poor load times, inconsistent behaviors, and no notifications when a lead reached out. Joining a team of three engineers, I was tasked with remaking the app from scratch in a way that was familiar to most iPhone users without asking them to change how they worked.",
       "With WeddingPro released natively with SwiftUI and Swift Concurrency in October 2025, paid Monthly Active Users rose to 24% from a 10% target, sessions per user per month 3.7x'd, daily active users rose 35%, and vendors responded on our platform 75% faster.",
@@ -159,6 +171,9 @@ export const companies: Company[] = [
     shortName: "URBN",
     role: "iOS Engineer",
     dateRange: "2021 — 2025",
+    startDate: "2021-07",
+    endDate: "2025-05",
+    workArrangement: "Fully remote.",
     summary:
       [
         "Joining a team of ten mobile engineers post-grad, I led the retention vertical for URBN's whitelabeled iOS shopping apps, Urban Outfitters, Anthropologie, and Free People.",

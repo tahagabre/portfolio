@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Lora } from "next/font/google";
 import { Nav } from "@/components/Nav";
 import { site } from "@/data/site";
+import { companies } from "@/data/companies";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -40,6 +41,25 @@ export const metadata: Metadata = {
   },
 };
 
+const currentCompany = companies.find((company) => !company.endDate);
+const pastCompanies = companies.filter((company) => company.endDate);
+
+function placeJsonLd(location: { city: string; region: string; country: string }) {
+  return {
+    "@type": "Place",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: location.city,
+      addressRegion: location.region,
+      addressCountry: location.country,
+    },
+  };
+}
+
+function roleDescription(company: { workArrangement: string; summary: string[] }) {
+  return [company.workArrangement, ...company.summary].join(" ");
+}
+
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -48,6 +68,32 @@ const personJsonLd = {
   url: site.url,
   email: site.email,
   sameAs: [site.linkedin, site.github],
+  homeLocation: placeJsonLd({ city: "New York", region: "NY", country: "US" }),
+  worksFor: currentCompany && {
+    "@type": "OrganizationRole",
+    roleName: currentCompany.role,
+    startDate: currentCompany.startDate,
+    description: roleDescription(currentCompany),
+    workLocation: currentCompany.workLocation && placeJsonLd(currentCompany.workLocation),
+    worksFor: { "@type": "Organization", name: currentCompany.name },
+  },
+  alumniOf: [
+    ...pastCompanies.map((company) => ({
+      "@type": "OrganizationRole",
+      roleName: company.role,
+      startDate: company.startDate,
+      endDate: company.endDate,
+      description: roleDescription(company),
+      workLocation: company.workLocation && placeJsonLd(company.workLocation),
+      alumniOf: { "@type": "Organization", name: company.name },
+    })),
+    {
+      "@type": "OrganizationRole",
+      roleName: site.education.degree,
+      endDate: site.education.endDate,
+      alumniOf: { "@type": "EducationalOrganization", name: site.education.institution },
+    },
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
